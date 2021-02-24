@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Atomus.Windows.Controls.Menu.ModernMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"              
+             d:DesignHeight="450" d:DesignWidth="360" 
+             Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Atomus.Windows.Style.ModernStyle;component/ResourceDictionary/ModernDark/Root.xaml" />
+            </ResourceDictionary.MergedDictionaries>            
+        </ResourceDictionary>-->
+        <Style x:Key="treeviewitem_menu" TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource treeviewitem_menu_base}">
+            <EventSetter Event="MouseDoubleClick" Handler="TreeViewItem_MouseDoubleClick" />
+        </Style>
+        <Style x:Key="treeviewitem_menu_2" TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource treeviewitem_menu_base_2}">
+            <EventSetter Event="MouseDoubleClick" Handler="TreeViewItem_MouseDoubleClick" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="grid_Menu" Background="#2a3344" Margin="0,0,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Text="{Binding FilterText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" Tag="Name, Keyword" Style="{DynamicResource textbox_menu_placeholder}"
+                 Visibility="{Binding ElementName=btn_Fold,Path=IsChecked,Converter={StaticResource BoolToVisibleConverter},ConverterParameter=1}">
+            <TextBox.InputBindings>
+                <KeyBinding Key="Enter" Command="{Binding MenuFilterCommand}" />
+            </TextBox.InputBindings>
+        </TextBox>
+
+        <TreeView Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="1,0,5,1"
+                  Style="{DynamicResource TreeView_Menu}"
+                  ItemContainerStyle="{DynamicResource treeviewitem_menu}"                   
+                  ItemsSource="{Binding MenuData}"
+                  Visibility="{Binding ElementName=btn_Fold,Path=IsChecked,Converter={StaticResource BoolToVisibleConverter},ConverterParameter=1}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <!--<ColumnDefinition Width="30"/>-->
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--<Image Grid.Row="0" Grid.Column="0" Source="{Binding Image1}"/>-->
+                        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,13,0,0" Text="{Binding Name}" ToolTip="{Binding Decription}" Style="{DynamicResource textblock_menu}"/>
+                    </Grid>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+        <TreeView x:Name="tree_ImgOnly" Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="1,0,5,1"
+                  ScrollViewer.HorizontalScrollBarVisibility ="Disabled"    
+                  Style="{DynamicResource TreeView_Menu}"                                
+                  ItemContainerStyle="{DynamicResource treeviewitem_menu_2}"
+                  ItemsSource="{Binding MenuData}" TreeViewItem.Selected="Tree_ImgOnly_Selected"
+                  Visibility="{Binding ElementName=btn_Fold,Path=IsChecked,Converter={StaticResource BoolToVisibleConverter},ConverterParameter=0}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <Image Width="30" Height="30" Source="{Binding DefImage}" ToolTip="{Binding Decription}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+        <ToggleButton x:Name="btn_Fold" Grid.Row="2" Height="40" Margin="0,-10,0,0" Style="{DynamicResource Toggle_Floating}" Checked="Btn_Fold_Checked" Unchecked="Btn_Fold_Checked"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{232E359C-A2FB-4692-AFC4-C87BE77526CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{C58FCAFC-4D3C-42E8-9C60-0BCE244A677C}"
+	ProjectSection(SolutionItems) = preProject
+		src\Controllers\ModernMenuController.cs = src\Controllers\ModernMenuController.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{BFF223B0-73F6-4763-9E3D-BEF877ED2588}"
+	ProjectSection(SolutionItems) = preProject
+		src\Models\ModernMenuSearchModel.cs = src\Models\ModernMenuSearchModel.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{CED897A7-C799-488C-B82D-B566B790C277}"
+	ProjectSection(SolutionItems) = preProject
+		src\View\ModernMenu.xaml = src\View\ModernMenu.xaml
+		src\View\ModernMenu.xaml.cs = src\View\ModernMenu.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{9AA05BCE-A509-491A-AD63-B3A05FE68556}"
+	ProjectSection(SolutionItems) = preProject
+		src\ViewModel\ModernMenuViewModel.cs = src\ViewModel\ModernMenuViewModel.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atomus.Windows.Controls.Menu.ModernMenu(dotNet)", "dotNet\Atomus.Windows.Controls.Menu.ModernMenu(dotNet).csproj", "{4282F9CB-F7B1-45FA-8F41-0F861D42FC87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4282F9CB-F7B1-45FA-8F41-0F861D42FC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4282F9CB-F7B1-45FA-8F41-0F861D42FC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4282F9CB-F7B1-45FA-8F41-0F861D42FC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4282F9CB-F7B1-45FA-8F41-0F861D42FC87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C58FCAFC-4D3C-42E8-9C60-0BCE244A677C} = {232E359C-A2FB-4692-AFC4-C87BE77526CC}
+		{BFF223B0-73F6-4763-9E3D-BEF877ED2588} = {232E359C-A2FB-4692-AFC4-C87BE77526CC}
+		{CED897A7-C799-488C-B82D-B566B790C277} = {232E359C-A2FB-4692-AFC4-C87BE77526CC}
+		{9AA05BCE-A509-491A-AD63-B3A05FE68556} = {232E359C-A2FB-4692-AFC4-C87BE77526CC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {709B7933-A123-4FAD-A236-AF42731973D0}
+	EndGlobalSection
+EndGlobal
